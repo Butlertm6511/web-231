@@ -22,13 +22,13 @@
 </head>
 <body>
   <div id="container">
-    <class="card">
+    <div class="card">
       <div class="card-title">
         <h1>Exercise 2.2 - Hello JavaScript </h1>
       </div>
       
-      <!--id add to button to bind information for on click with eventlistener-->
-      <div card="content">
+      <!--id add to button to bind information for on click with eventListener-->
+      <div class="card-content">
         <button id="btnMyCourse">What course am I taking?</button>
 
       <!--binging javascript text to out put "You are now in Mosley Butler's world!" -->
@@ -48,15 +48,18 @@
 	<script>
 
     // Code to bind "You are now in Mosley Butler World" to the paragraph tag in html.
-    
-    document.getElementById("txtMyWorld") .innerHTML = ("You are now in Mosley Butler's world!");
+    let myClass = "You are now in Mosley Butler's world!"
+    document.getElementById("txtMyWorld").innerHTML = myClass;
 
 
     // Binding the code to html button's Id. Adding eventListener that will run the function when button is clicked, and will display a message "WEB 231 - Enterprise JavaScript I" 
     
-    document.getElementById("btnMyCourse").addEventListener("click",function(){
-      alert("WEB 231 - Enterprise JavaScript I")
-    });
+    document.getElementById("btnMyCourse").addEventListener("click", alertClass);
+  
+    function alertClass(){
+      alert("WEB 231 - Enterprise JavaScript I");
+    }
+      
 
 
   </script>

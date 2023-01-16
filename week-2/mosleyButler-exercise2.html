@@ -1,0 +1,65 @@
+<!--
+    Title: Hello JavaScript
+    Author: Professor Krasso
+    Date: 09 January 2023
+    Modified By: TiaNiecia Mosley Butler
+    Description: Data-binding html
+  -->
+
+  <!--
+    Title: The addEventListener()method
+    Author:W3schools https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+    Date 15 January 2023
+    Modified By TiaNiecia Mosley Butler
+    Description: adding a event listen to run function on click to display alert
+
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>WEB 231 - Enterprise JavaScript I</title>
+</head>
+<body>
+  <div id="container">
+    <class="card">
+      <div class="card-title">
+        <h1>Exercise 2.2 - Hello JavaScript </h1>
+      </div>
+      
+      <!--id add to button to bind information for on click with eventlistener-->
+      <div card="content">
+        <button id="btnMyCourse">What course am I taking?</button>
+
+      <!--binging javascript text to out put "You are now in Mosley Butler's world!" -->
+        <p id="txtMyWorld"></p>
+       
+
+      </div>
+    
+    </div>
+
+  </div>
+
+   <div>
+    <a href="/web-213/web-231/index.html" class="return-home">Return</a>
+   </div>
+	
+	<script>
+
+    // Code to bind "You are now in Mosley Butler World" to the paragraph tag in html.
+    
+    document.getElementById("txtMyWorld") .innerHTML = ("You are now in Mosley Butler's world!");
+
+
+    // Binding the code to html button's Id. Adding eventListener that will run the function when button is clicked, and will display a message "WEB 231 - Enterprise JavaScript I" 
+    
+    document.getElementById("btnMyCourse").addEventListener("click",function(){
+      alert("WEB 231 - Enterprise JavaScript I")
+    });
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WEB 231 - Enterprise JavaScript </title>
+    
+    <link rel="stylesheet" type="text/css" href="mosleyButler-payroll.css">
+    <link rel = "stylesheet" type="text/css" href="../site.css">
+    <link rel = "stylesheet" type="text/css" href="../global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--
+    Title: Values and Variables
+    Author: Professor Krasso
+    Date: 14 January 2023
+    Modified By: TiaNiecia Mosley Butler
+    Description: Assigning variables 
+  -->
+    <div id="container">
+        <div class="Payroll-Sytem"></div>
+        <div id="get-value">
+            <div class="card">
+                <div class="content">
+                    <h1 id="payroll-System">Payroll System</h1>
+
+                    <h3>Employee record 1</h3>
+                    <ul>
+                        <li id="txtFirstNameLudgwig"></li>
+                        <li id="txtLastNameBeethoven"></li>
+                        <li id="txtAddressLudwig"></li>
+                        <li id="txtHireDateLudwig"></li>
+                        <li id="txtPayRateLudwig"></li>
+                    </ul>
+
+                    
+                    <h3>Employee record 2</h3>
+                    <ul>
+                        <li id="txtFirstNameJohann"></li>
+                        <li id="txtLastNameBach"></li>
+                        <li id="txtAddressJoahann"></li>
+                        <li id="txtHireDateJoahann"></li>
+                        <li id="txtPayRateJoahann"></li>
+                    </ul>
+
+                    
+                    <h3>Employee record 3</h3>
+                    <ul>
+                        <li id="txtFirstNameWolfgang"></li>
+                        <li id="txtLastNameMozart"></li>
+                        <li id="txtAddressWolfgang"></li>
+                        <li id="txtHireDateWolfgang"></li>
+                        <li id="txtPayRateWolfgang"></li>
+                    </ul>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <a href="../index.html" class="return-home">Return</a>
+       </div>
+    
+    <script>
+
+        // records for employee 1
+
+        //assigning firstName1, lastName1, and const address1 to variables and the binding to html to out put employee 1 information 
+        const firstName1 = "Ludwig";
+        document.getElementById("txtFirstNameLudgwig").innerHTML = firstName1;
+
+        const lastName1 = "Beethoven";
+        document.getElementById("txtLastNameBeethoven").innerHTML = lastName1;
+
+        const address1 = "505 main street"
+        document.getElementById("txtAddressLudwig").innerHTML = address1;
+       
+       // assigning date a hire date, then changing it from a number into a string so it can be out putted using innerHtml and displayed
+        const date1 = new Date("2022-01-05");
+        let hireDate1 = date1.toLocaleDateString("en-Us");
+        document.getElementById("txtHireDateLudwig").innerHTML = hireDate1;
+
+        // aswigned the value of employee pay to their pay rate. Next using .tofixed to cut decimal number to only on then using innerhtml to output the value into html
+        let payRate1 = 18.999
+        let  payRateFixed1= payRate1.toFixed(1);
+        document.getElementById("txtPayRateLudwig").innerHTML = payRateFixed1;
+       
+
+
+        //follow the same process for the values of for employee 2 and 3 
+
+        
+
+
+        // record for employee 2 
+        const firstName2 = "Joahann";
+        document.getElementById("txtFirstNameJohann").innerHTML = firstName2;
+
+        const lastName2 = "Bach";
+        document.getElementById("txtLastNameBach").innerHTML = lastName2;
+
+        const address2 = "512 main street"
+        document.getElementById("txtAddressJoahann").innerHTML = address2;
+       
+        
+        const date2 = new Date("2022-02-23");
+        let hireDate2 = date2.toLocaleDateString("en-Us");
+        document.getElementById("txtHireDateJoahann").innerHTML = hireDate2;
+
+        let payRate2 = 25.555
+        let  payRateFixed2= payRate2.toFixed(1);
+        document.getElementById("txtPayRateJoahann").innerHTML = payRateFixed2;
+
+        
+        
+
+
+        // record for employee 2
+
+        const firstName3 = "Wolfgang";
+        document.getElementById("txtFirstNameWolfgang").innerHTML = firstName3;
+
+        const lastName3 = "Mozart";
+        document.getElementById("txtLastNameMozart").innerHTML = lastName3;
+
+        const address3 = "600 main street"
+        document.getElementById("txtAddressWolfgang").innerHTML = address3;
+        
+        //const record3Address = "600 main street"
+      
+        const date3 = new Date("2022-07-17");
+        let hireDate3 = date3.toLocaleDateString("en-Us");
+        document.getElementById("txtHireDateWolfgang").innerHTML = hireDate3;
+
+        let payRate3 = 50.111
+        let  payRateFixed3 = payRate3.toFixed(1);
+        document.getElementById("txtPayRateWolfgang").innerHTML = payRateFixed3;
+
+
+
+    </script>
+</body>
+</html>

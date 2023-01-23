@@ -1,0 +1,109 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>WEB 231 - Enterprise JavaScript I</title>
+   <link rel = "stylesheet" type="text/css" href="../global.css">
+	<link rel="stylesheet" type="text/css" href="mosleyButler-temp-conversion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<!--
+      Title: Temperature Conversion App
+      Author: Professor Krasso
+      Date: 01/18/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Writing a grogram that accept and manipulate users values to convert fahrenheit to Celsius.
+     -->
+
+	 <!-- 
+      Title: onclick event
+      Author: w3Schools
+      Date: 01/18/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Using onclick function that copies the text value from a field from a form and output it to a different location
+     -->
+
+	  -->
+	<div id="container">
+		<h1 id="app-header">Welcome to Temperature Conversion App!</h1>
+
+	
+		<div id="card-example">
+			<div class="card">
+				<div class="card-title">Fahrenheit to Celsius Converter</div>
+				<div class="card-content">
+					<div class="form-field">
+						<label for="txtFahrenheit" >Fahrenheit value</label>
+
+						<!-- Input field were users will type their value to be converter. The id="txtFahrenheit"  binds with
+						     Javascript code fahrenheit variable to store and assign the value.  
+						-->
+						<input type="text" class="input" id="txtFahrenheit" name="txtFahrenheit">
+					</div>
+					<div class="form-field"> 
+
+
+						<!--Onclick function placed on button so when user clicks the Convert Temperature button, it triggers my
+						    myFunction to run and places the input value converted into the conversion results.
+						-->
+						<button class="btn btn-primary full-width" onclick="myFunction()">Convert Temperature</button>
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="form-results-example">
+		<div class="card">
+			<div class="card-title">Conversion Results</div>
+			<div class="card-contents" >
+			
+				<!-- Binds id="resultsC" to the myFunction to display the results of converted value -->
+			<p id="resultsC"></p>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div>
+		<!-- Links assignment 3.2 back to landing home page.-->
+        <a href="../index.html" class="return-home">Return</a>
+       </div>
+
+	<script>
+		
+		/* The myFunction function is used to convert a users inputted fahrenheit value and then convert it to celsius.
+		   After the values are converted, they are than display the results on the conversion results section. 
+		*/
+
+		function myFunction() {
+
+		//Captures the value from the 'txtFahrenheit' id and assigns the value to fahrenheit.
+		let fahrenheit = document.getElementById('txtFahrenheit').value;
+		
+		//The captured number from fahrenheit ia applied to the formula for celsius and assigned to ces.
+		let ces = ((parseFloat(fahrenheit)-32)/1.8).toFixed(2);
+
+		//The results are bind using resultsC id and the the result are display to the conversion results using .innerHTML ces.  
+		document.getElementById("resultsC").innerHTML = ces;	
+		}
+		
+	</script>
+
+    
+</body>
+</html>

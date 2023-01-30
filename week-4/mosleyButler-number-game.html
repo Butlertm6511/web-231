@@ -9,6 +9,25 @@
 
 </head>
 <body>
+
+	<!--
+      Title: Number Game
+      Author: Professor Krasso
+      Date: 01/29/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: A program that accepts the user's input value and compares it against a randomly generated number.
+	               The program will generate a message to let the user know if the number they guessed was too high or too low, 
+				   and if the number is a match.
+     -->
+
+	 <!-- 
+      Title: JavaScript if, else, and else if 
+      Author: w3Schools
+      Date: 01/29/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Using if, else, and else if conditional statements to perform different actions based on conditions
+     -->
+
 	<div id="container">
 		<h1 id="app-header">Welcome to the numbers game!</h1>
 
@@ -18,9 +37,16 @@
 				<div class="card-content">
 					<div class="form-field">
 						<label for="txtMyNumber" >Guess the number</label>
-						<input type="text" class="input" id="txtMyNumber" name="myName">
+
+						<!-- Input field where users will type their value to be compared to the random number. The id="txtMyNumber"  binds with
+						     Javascript code myFunction to store and assign myNumber.  
+						-->
+						<input type="text" class="input" id="txtMyNumber" name="myNumber">
 					</div>
 
+					<!--Onclick function placed on the button so when user clicks the Submit button, it triggers my
+						myFunction to run and places the input value myNumber to compare values.
+					-->
 					<div class="form-field">
 						<button class="btn btn-primary full-width" onclick= "myFunction()">Submit</button>
 
@@ -54,29 +80,36 @@
 
 		function myFunction() {
 
-         //Takes the number from input field and store the value to the variable my number   
+         //Takes the number from the input field and stores the value in the variable myNumber   
 		let myNumber = document.getElementById('txtMyNumber').value;
 
         // generates a random number between 1 and 10.
         const rnd = Math.floor((Math.random()* 10) + 1);
         
+		//declare a value that will be used to compare conditions
         let myResponds;
+
+		//If the number inputted is bigger than the random number, a message will be displayed in the results "The number is less than(the number guessed."
         if(myNumber > rnd){
             myResponds = (`The number is less than ${myNumber}.`);
         }
+
+		//If the number inputted is lower than the random number, a message will be displayed in the results "The number is greater than(the number guessed."
 		else if(myNumber < rnd){
             myResponds = (`The number is greater than ${myNumber}.`);
 
         }	
+
+		//If the number inputted matches the random number, a message will be displayed in the results "The number is greater than(Congratulation! You picked the right number!"
         else{
             myResponds = "Congratulation! You picked the right number!";
         }
 
+		//The results are bind using resultsC id and the result are display if the number was great, less, or the correct number using .innerHTML = myResponds.
         document.getElementById("resultsC").innerHTML = myResponds;
 		}
 		
 	</script>
-
     
 </body>
 </html>

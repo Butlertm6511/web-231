@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>WEB 231 - Enterprise JavaScript I</title>
+   <link rel = "stylesheet" type="text/css" href="../global.css">
+	<link rel="stylesheet" type="text/css" href="mosleyButler-sequence-game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<div id="container">
+		<h1 id="app-header">Welcome to the sequence game!</h1>
+
+		<div id="card-example">
+			<div class="card">
+				<div class="card-title">Sequence Selection Form</div>
+				<div class="card-content">
+
+					<div class="form-field" >
+						<label for="number">Choose a number sequence</label>
+						<select name="Sequence" id="Sequence" class="drop-down-menu">
+							<option value="select">Select</option>
+							<option value="fibonacci">Fibonacci Sequence</option>
+							<option value="event">Even Numbers</option>
+							<option value="odd">Odd Numbers</option>
+						</select>
+					</div>
+
+					<div>
+						<button class="btn btn-primary full-width" onClick= "btnDisplaySequence()">Display Sequence</button>
+					</div>
+
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="form-Results-Example">
+		<div class="card">
+			<div class="card-title">Conversion Results</div>
+			<div class="card-contents" >
+			<p id="resultsC"></p>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div>
+        <a href="../index.html" class="return-home">Return</a>
+       </div>
+
+	<script>
+
+		function btnDisplaySequence (){
+
+       let choice = document.getElementById("Sequence").value;
+	   let fibonacci;
+	   
+	   let myChoice;
+        if (myChoice === fibonacci){
+		
+		let num1 = 0;
+		let num2 = 1;
+		let next;
+		let fibonacciSequenceText = "";
+		
+		while (num1 < 40){
+			fibonacciSequenceText = num1 + ",";
+			next = num1 + num2;
+			num1 = num2;
+			num2 = next;
+			num1++;
+		}
+	
+	
+		document.getElementById("resultsC").innerHTML = myChoice;
+	}
+}
+		//if (choice === fibonacci){
+		//	let fibonacci= function(result,len){
+		//	let num1 = result [0],
+		//		num2 = result [1],
+		//		next,
+		//		cnt = 2;
+
+		//	while (cnt < len){
+		//		next = num1 + num2;
+		//		num1 = num2;
+		//		num2 =next;
+		//		result.push (next);
+		//		cnt++;
+
+		//	}
+			//return result;
+	//	};
+	//	}
+	//	else if (choice === even){
+
+	//	}
+
+	//	else choice =
+
+		
+
+		//let myChoice;
+		//if(myChoice === fibonacci){
+		//	myChoice = fibonacci [0,1], 40;
+		//};
+	
+	//	let eventNum = 
+
+	//	let oddNum =
+
+		//let i = 0
+
+      //  let text = "";
+        
+      
+		//else if(choice === eventNum){
+           // myResponds = (`The number is greater than ${myNumber}.`);
+
+        //}	
+        //else{
+        //    choice = oddNum{
+		//		;
+        //}
+
+        //document.getElementById("resultsC").innerHTML = myChoice;
+		
+	
+	</script>
+
+    
+</body>
+</html>

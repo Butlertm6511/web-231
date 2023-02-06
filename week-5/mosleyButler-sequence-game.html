@@ -9,6 +9,35 @@
 
 </head>
 <body>
+
+	<!--
+      Title: Sequence Game
+      Author: Professor Krasso
+      Date: 02/01/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: A program that allows users to select different sequences of numbers from a cascading dropdown list.
+	               They are given three options for the string of numbers: Fibonacci, evens, or odds. After they choose, 
+				   they click the display sequence button that shows the string of numbers displayed in the sequence results
+				   section.
+     -->
+
+	 <!-- 
+      Title: HTML <select> Tag
+      Author: w3Schools
+      Date: 02/01/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Using select to create a drop-down list in a form to collect user input
+     -->
+
+	 <!-- 
+      Title: HTML The While Loop Tag and JavaScript Loops
+      Author: w3Schools
+      Date: 02/01/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Using while loop to execute code until a condition is true. Using for loop to loop through block of code 
+	  a number of times 
+     -->
+
 	<div id="container">
 		<h1 id="app-header">Welcome to the sequence game!</h1>
 
@@ -19,16 +48,23 @@
 
 					<div class="form-field" >
 						<label for="number">Choose a number sequence</label>
-						<select name="Sequence" id="Sequence" class="drop-down-menu">
+
+						<!-- Id place on drop down that will bind with JavaScript to collect information of the input -->
+						<select name="Sequence" id="sequence" class="drop-down-menu">
+
+							<!--User input chooses with displayed values  -->
 							<option value="select">Select</option>
 							<option value="fibonacci">Fibonacci Sequence</option>
-							<option value="event">Even Numbers</option>
+							<option value="even">Even Numbers</option>
 							<option value="odd">Odd Numbers</option>
 						</select>
+
+						
 					</div>
 
 					<div>
-						<button class="btn btn-primary full-width" onClick= "btnDisplaySequence()">Display Sequence</button>
+						<!-- Button with onclick that when clicked will run thedropDownSequence function and display the string results  -->
+						<button id = "btnDisplaySequence" class="btn btn-primary full-width" onClick= "dropDownSequence()">Display Sequence</button>
 					</div>
 
 
@@ -42,8 +78,10 @@
 
 	<div id="form-Results-Example">
 		<div class="card">
-			<div class="card-title">Conversion Results</div>
+			<div class="card-title">Sequence Results</div>
 			<div class="card-contents" >
+			
+			<!-- id resultsC binds with Javascript to display the results in the Sequence Results -->
 			<p id="resultsC"></p>
 			</div>
 
@@ -52,86 +90,99 @@
 	</div>
 
 	<div>
+
+		<!-- Return link that links back to the landing page -->
         <a href="../index.html" class="return-home">Return</a>
        </div>
 
 	<script>
 
-		function btnDisplaySequence (){
 
-       let choice = document.getElementById("Sequence").value;
-	   let fibonacci;
+	  /* function that allows user to select a sequence from a cascading dropdown list. It displays a sequence of numbers based
+		on the choice, than displays the results after the user clicks the button. */
+		   
+		function dropDownSequence(){
+
+		// Gets user's input and assigns it to the choice variable.
+     		let choice = document.getElementById("sequence").value;
+
+
+
+		// Choice is compared to the fibonacci.  
+
+		if (choice === "fibonacci"){
 	   
-	   let myChoice;
-        if (myChoice === fibonacci){
-		
-		let num1 = 0;
-		let num2 = 1;
-		let next;
-		let fibonacciSequenceText = "";
-		
-		while (num1 < 40){
-			fibonacciSequenceText = num1 + ",";
-			next = num1 + num2;
-			num1 = num2;
-			num2 = next;
-			num1++;
-		}
-	
-	
-		document.getElementById("resultsC").innerHTML = myChoice;
-	}
-}
-		//if (choice === fibonacci){
-		//	let fibonacci= function(result,len){
-		//	let num1 = result [0],
-		//		num2 = result [1],
-		//		next,
-		//		cnt = 2;
-
-		//	while (cnt < len){
-		//		next = num1 + num2;
-		//		num1 = num2;
-		//		num2 =next;
-		//		result.push (next);
-		//		cnt++;
-
-		//	}
-			//return result;
-	//	};
-	//	}
-	//	else if (choice === even){
-
-	//	}
-
-	//	else choice =
-
-		
-
-		//let myChoice;
-		//if(myChoice === fibonacci){
-		//	myChoice = fibonacci [0,1], 40;
-		//};
-	
-	//	let eventNum = 
-
-	//	let oddNum =
-
-		//let i = 0
-
-      //  let text = "";
+		/* Assigning variables that will be used to determine the sequences:num1, num2, and next. Finally asigning fibonacciSequenceText with 
+		   '' so we can hav a string value and giving it a place to put the values.*/   
+	    	let num1 = 0; 
+        	let num2 = 1; 
+        	let next;
+        	let fibonacciSequenceText = '';
         
-      
-		//else if(choice === eventNum){
-           // myResponds = (`The number is greater than ${myNumber}.`);
+		/* Using a will loop to execute through the numbers as long as num1 is less than 40. Number start at current number and than add pervious number to get
+		  the next number in the string. Next they are added to the string as long as the number is less than 40.*/
+        while (num1 < 40){
+            fibonacciSequenceText += num1 + ', ';
+            next = num1 + num2;
+            num1 = num2;
+            num2 = next;
+       
+        }
 
-        //}	
-        //else{
-        //    choice = oddNum{
-		//		;
-        //}
+		// The results  bind with html's id resultsC to display the results. The method slice is us take of the lass to places of the sequence
+        document.getElementById("resultsC").innerHTML = fibonacciSequenceText.slice(0,-2);
+		}
 
-        //document.getElementById("resultsC").innerHTML = myChoice;
+
+		//  The results are compare against even.Id true then a while loop while execute.
+		 else if (choice === "even"){
+
+		// Assigning the variables and making a place to how the text value
+			let i = 2;
+			let evenText = " ";
+		
+		/* while the number is less than 20 the loop with continue to execute. The expression dives thge number and if equal 0. its tur and 
+		will post the number.*/
+
+			while (i < 20 ){				
+				if (i % 2 === 0){
+				evenText += i + ", ";
+				i++;
+				}
+
+				i++;
+
+			}
+ 
+		// Bind the result to resultsC and slices the number
+		document.getElementById("resultsC").innerHTML = evenText.slice(0,-2);
+		}
+
+		else if(choice === "odd"){
+
+			let oddText = " ";
+
+		/* while the number is less than 20 the loop with continue to execute. The expression dives the number and if not equal 0. its false and 
+		will post the number.*/	
+			
+			for(let a = 1;  a < 20; a++){
+				if( a % 2 !== 0){
+					oddText += a + ", ";
+				}
+
+
+			}
+
+			// Bind the result to resultsC and slices the number
+			document.getElementById("resultsC").innerHTML = oddText.slice(0,-2);
+		}
+
+		//  if it is none of the choose it will display a alert box Invalid selection, please try again!
+		else {
+			choice = alert("Invalid selection, please try again!");
+		}
+		
+		}
 		
 	
 	</script>

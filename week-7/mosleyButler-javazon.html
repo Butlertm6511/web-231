@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>WEB 231 - Enterprise JavaScript I</title>
+   <link rel = "stylesheet" type="text/css" href="../global.css">
+	<link rel="stylesheet" type="text/css" href="mosleytmButler-javazon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+	<!--
+      Title: In-N-Out-Books
+      Author: Professor Krasso
+      Date: 02/17/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: A program that allows users to select a table of products, services, and employees from a cascading dropdown list.
+	              After they choose,  they click the display listing button that shows a table with information from that table.
+     -->
+
+	 <!-- 
+      Title: JavaScript Switch Statement
+      Author: w3Schools
+      Date: 02/17/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: Shows how perform different action base on different conditions 
+     -->
+
+	 <!-- 
+      Title: JavaScript Objects
+      Author: w3Schools
+      Date: 02/09/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: writing  name:value pairs
+     -->
+
+	 <!-- 
+      Title: The For Loop 
+      Author: w3Schools
+      Date: 02/17/2023
+      Modified By: TiaNiecia Mosley Butler
+      Description: loops through code over and over given a different value each time
+     -->
+
+	 <div id="container">
+		<h1 id="app-header">Welcome to the Javazon App!</h1>
+
+		<div id="card-example">
+			<div class="card">
+				<div class="card-title">Javazon Selection Form</div>
+				<div class="card-content">
+
+					<div class="form-field" >
+						<label for="number">Choose a listing</label>
+
+						<!-- Id placed on drop down that will bind with JavaScript to collect information of the input -->
+						<select name="listing" id="listing" class="drop-down-menu">
+
+							<!--User input choices with displayed values  -->
+							<option value="select">Select</option>
+							<option value="products">Products</option>
+							<option value="services">Services</option>
+                            <option value="employees">Employees</option>
+						</select>
+
+						
+					</div>
+
+					<div>
+						<!-- Button with onclick that when clicked will run the dropDownSequence function to compare input and display table based on dropdown choice  -->
+						<button id = "btnDisplayListing" class="btn btn-primary full-width" onclick="displayListing()">Display Listing</button>
+					</div>
+
+					
+			
+
+				</div>
+				
+			</div>
+			<div class="return-home">
+
+				<!-- Return link that links back to the landing page -->
+				<a href="../index.html" >Return</a>
+		   </div>
+			
+		</div>
+
+		
+
+		</div>
+
+			
+
+				
+	
+		<div id="form-Results-Example">
+			<div class="card">
+
+				<!-- Code makes a table to input information of productTable. Tells JavaScript where to input values for the products.
+				 Style with a display set to none so that table is not displayed until authors has be products.-->
+			
+				<div class="card-contents" id="productTable" style="display: none;"  >
+			
+			
+					<div class="card-title">Javazon Products</div>
+		
+				
+						<table  >
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Description</th>
+									<th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>totalValue</th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr id="product1">
+									<td id="product1_id"></td>
+									<td id="product1_description"></td>
+									<td id="product1_price"></td>
+                                    <td id="product1_quantity"></td>
+                                    <td id="product1_totalValue"></td>
+                                 
+                                  
+								</tr>
+								<tr id="product2">
+									<td id="product2_id"></td>
+									<td id="product2_description"></td>
+									<td id="product2_price"></td>
+                                    <td id="product2_quantity"></td>
+                                    <td id="product2_totalValue"></td>
+								</tr>
+								<tr id="product3">
+									<td id="product3_id"></td>
+									<td id="product3_description"></td>
+									<td id="product3_price"></td>
+                                    <td id="product3_quantity"></td>
+                                    <td id="product3_totalValue"></td>
+								</tr>         
+                                <tr id="product4">
+									<td id="product4_id"></td>
+									<td id="product4_description"></td>
+									<td id="product4_price"></td>
+                                    <td id="product4_quantity"></td>
+                                    <td id="product4_totalValue"></td>
+								</tr>     
+                                <tr id="product5">
+									<td id="product5_id"></td>
+									<td id="product5_description"></td>
+									<td id="product5_price"></td>
+                                    <td id="product5_quantity"></td>
+                                    <td id="product5_totalValue"></td>
+								</tr>       
+				
+							</tbody>
+				          
+						</table>
+			
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="form-Results-Example">
+			<div class="card">
+
+				<!-- Code makes a table to input information of ServicesTable. Tells JavaScript where to input values for the services.
+				 Style with a display set to none so that table is not displayed until authors has be services.-->
+				
+				 <div class="card-contents" id="ServicesTable" style="display: none;"  >
+					<div class="card-title">Javazon Services</div>
+
+					
+
+					<table  >
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Description</th>
+								<th>HourlyRate</th>
+								<th>Min</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="service1">
+								<td id="service1_id"></td>
+								<td id="service1_description"></td>
+								<td id="service1_hourlyRate"></td>
+								<td id="service1_min"></td>  
+							</tr>
+							<tr id="service2">
+								<td id="service2_id"></td>
+								<td id="service2_description"></td>
+								<td id="service2_hourlyRate"></td>
+								<td id="service2_min"></td>  
+							</tr>
+							<tr id="service3">
+								<td id="service3_id"></td>
+								<td id="service3_description"></td>
+								<td id="service3_hourlyRate"></td>
+								<td id="service3_min"></td>  
+							</tr>
+							
+						</tbody>
+					  
+					</table>
+					</div>
+
+			</div>
+
+		</div>
+
+        <div id="form-Results-Example">
+			<div class="card">
+
+				<!-- Code makes a table to input information of EmployeeTable. Tells JavaScript where to input values for the Employees.
+				 Style with a display set to none so that table is not displayed until authors has be employees.-->
+				
+				
+				 <div class="card-contents" id="EmployeesTable" style="display: none;"  >
+					<div class="card-title">Javazon Employees</div>
+
+					
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Employee Id</th>
+								<th>Last Name</th>
+								<th>First Name</th>
+								<th>Salary</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="employee1">
+								<td id="employee1_employeeId"></td>
+								<td id="employee1_lastName"></td>
+								<td id="employee1_firstName"></td>
+								<td id="employee1_salary"></td>  
+							</tr>
+							<tr id="employee2">
+								<td id="employee2_employeeId"></td>
+								<td id="employee2_lastName"></td>
+								<td id="employee2_firstName"></td>
+								<td id="employee2_salary"></td>  
+							</tr> 
+							<tr id="employee3">
+								<td id="employee3_employeeId"></td>
+								<td id="employee3_lastName"></td>
+								<td id="employee3_firstName"></td>
+								<td id="employee3_salary"></td>  
+							</tr>
+							<tr id="employee4">
+								<td id="employee4_employeeId"></td>
+								<td id="employee4_lastName"></td>
+								<td id="employee4_firstName"></td>
+								<td id="employee4_salary"></td>  
+							</tr>
+							<tr id="employee5">
+								<td id="employee5_employeeId"></td>
+								<td id="employee5_lastName"></td>
+								<td id="employee5_firstName"></td>
+								<td id="employee5_salary"></td>  
+							</tr>
+						</tbody>
+					  
+					</table>
+					</div>
+
+			</div>
+
+		</div>
+
+
+
+	
+
+	<script>
+
+		// function that captures users choice and displays a table based off choice of user input using a dropdown.
+
+
+		function displayListing(){
+
+
+			//Captures the user's input value for select, books, and authors.
+			let myChoice = document.getElementById("listing").value;	
+
+			//Assigns a variable to get a place where the information will be inputted.
+			let myProducts = document.getElementById("productTable");
+			let myServices = document.getElementById("ServicesTable");
+            let myEmployees = document.getElementById("EmployeesTable");
+
+
+			//Switch statement that compares values to choice. .
+
+			switch (myChoice){	
+
+			//Adding first case that will compare myChoice to products. If they are equal then the code will run.   
+
+			case "products":
+
+			//Unblocks the style placed on display to show the table for products, while blocking service and employee table from being displayed.
+            	myProducts.style.display = "block";
+				myServices.style.display ="none";
+				myEmployees.style.display ="none";
+			
+			
+			// Making a product class that has 5 proprieties. 
+				
+
+                class Products{
+                    constructor(id, description, price, quantity){
+                        this.id = id;
+                        this.description = description;
+                        this.price = price;
+                        this.quantity = quantity;
+                        this.totalValue = quantity * price;
+                    }
+                }
+            
+            
+            
+            
+            // Assigning the products and using the new keyword to set the values for the properties.
+            
+                
+                let product1 = new Products(9763, "HTML and CSS: Design and Build Websites", 22.26, 10);
+				let product2 = new Products(5433, "JavaScript: The Definitive Guide 7/E", 41.33, 7);
+				let product3 =new Products(54353, "Learning JavaScript Design Patterns 1/E", 25.99, 3);
+                let product4 = new Products(5435, "Express in Action: Writing, Building,and testing Node.js applications 1/E", 34.91, 3);
+				let product5 =new Products(54345,"MongoDB The Definitive Guide", 33.70, 8);
+
+			//Assigning the product 1-5 array to products
+
+				let products = [product1, product2, product3, product4, product5];
+
+
+        /*/Using a for loop to start at idex 1 and run over and over each time taking the value and adding one more to the array. Then using document.getElementByID
+		to place the value into table cell using  .textcontext. Finally adding .toFixed(2) to get the two decimal places. */
+
+                for(let i = 1; i<= products.length; i++) {
+					let currentProduct = products[i - 1];
+					document.getElementById(`product${i}_id`).textContent = currentProduct.id;
+					document.getElementById(`product${i}_description`).textContent = currentProduct.description;
+                    document.getElementById(`product${i}_price`).textContent = currentProduct.price.toFixed(2);
+                    document.getElementById(`product${i}_quantity`).textContent = currentProduct.quantity;
+                    document.getElementById(`product${i}_totalValue`).textContent = currentProduct.totalValue.toFixed(2);
+				}
+
+		// Adding a break to get out the loop.		
+
+				break;
+
+			
+		
+
+		//Adding second case  that will compare myChoice to services. If they are equal then the code will run. 
+ 			
+			case "services":
+
+				//Unblocks the style placed on display to show the table for services, while blocking products and employee table from being displayed.
+
+				myProducts.style.display = "none";
+				myServices.style.display ="block";
+				myEmployees.style.display ="none";
+
+
+		// Making a Services class that has 4 proprieties. 
+
+				class Services{
+                    constructor(id, description, hourlyRate, min){
+                        this.id = id;
+                        this.description = description;
+                        this.hourlyRate = hourlyRate;
+                        this.min = min;
+                    }
+                }
+            
+            
+            
+            // Assigning the services and using the new keyword to set the values for the services.
+            
+            
+                
+                let service1 = new Services(100, "Website Design", 150.00, 25);
+				let service2 = new Services(101, "DevOps Consulting", 125.00, 7);
+				let service3 =new Services(102, "Database Design", 125.00, 15);
+                
+			
+			//Assigning the service 1-3 array to services.
+			
+				let services = [service1, service2, service3];
+
+
+           /*/Using a for loop to start at idex 1 and run over and over each time taking the value and adding one more to the array. Then using document.getElementByID
+			to place the value into table cell using  .textcontext. Finally adding .toFixed(2) to get the two decimal places. */
+
+                for(let i = 1; i<= services.length; i++) {
+					let currentServices = services[i - 1];
+					document.getElementById(`service${i}_id`).textContent = currentServices.id;
+					document.getElementById(`service${i}_description`).textContent = currentServices.description;
+                    document.getElementById(`service${i}_hourlyRate`).textContent = currentServices.hourlyRate.toFixed(2);
+                    document.getElementById(`service${i}_min`).textContent = currentServices.min;
+				};
+
+
+			// Adding a break to get out the loop.	
+			
+			break;
+
+		
+			
+
+		
+			//Adding third case  that will compare myChoice to employees. If they are equal then the code will run. 
+ 			
+ 			
+			case "employees":{
+
+			//Unblocks the style placed on display to show the table for employees, while blocking products and services table from being displayed.
+
+				myProducts.style.display = "none";
+				myServices.style.display ="none";
+				myEmployees.style.display ="block";
+
+
+				// Making a Employees class that has 4 proprieties.
+
+				class Employees{
+					constructor(employeeId, lastName, firstName, salary){
+						this.employeeId = employeeId;
+						this.lastName = lastName;
+						this.firstName = firstName;
+						this.salary = salary;
+					}
+				}
+
+			
+				// Assigning the  employee and using the new keyword to set the values for the  employees
+				
+				let employee1 = new Employees (1007, "Beethoven", "Ludwig", 13.99);
+				let employee2 = new Employees (1008, "Bach", "Johann", 22.30);
+				let employee3 = new Employees (1009, "Mozart", "Wolfgang", 19.50);
+				let employee4 = new Employees (1010, "Brahms", "Johannes", 12.00);
+				let employee5 = new Employees (1011, "Haydn", "Joseph", 32.50);
+
+				//Assigning the employee 1-5 array to employees.
+			
+
+				let employees = [employee1, employee2, employee3, employee4, employee5];
+
+
+				/*Using a for loop to start at idex 1 and run over and over each time taking the value and adding one more to the array. Then using document.getElementByID
+				 to place the value into table cell using  .textcontext. Finally adding .toFixed(2) to get the two decimal places. */
+
+				for(let i = 1; i<= employees.length; i++) {
+					let currentEmployees = employees[i - 1];
+					document.getElementById(`employee${i}_employeeId`).textContent = currentEmployees.employeeId;
+					document.getElementById(`employee${i}_lastName`).textContent = currentEmployees.lastName;
+					document.getElementById(`employee${i}_firstName`).textContent = currentEmployees.firstName;
+					document.getElementById(`employee${i}_salary`).textContent = currentEmployees.salary.toFixed(2);
+				};
+
+				}
+
+				break;
+			//blocks the style placed on display for table for products, services and employees
+			
+			default :
+				myProducts.style.display = "none";
+				myServices.style.display ="none";
+				myEmployees.style.display ="none";
+			};
+		
+			};
+		
+			
+		
+
+			
+
+		
+
+
+	</script>
+
+    
+</body>
+</html>

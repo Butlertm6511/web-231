@@ -9,22 +9,7 @@
 
 </head>
 <body>
-	<!--
-      Title: Temperature Conversion App
-      Author: Professor Krasso
-      Date: 01/18/2023
-      Modified By: TiaNiecia Mosley Butler
-      Description: Writing a grogram that accept and manipulate users values to convert fahrenheit to Celsius.
-     -->
-
-	 <!-- 
-      Title: onclick event
-      Author: w3Schools
-      Date: 01/18/2023
-      Modified By: TiaNiecia Mosley Butler
-      Description: Using onclick function that copies the text value from a field from a form and output it to a different location
-     -->
-
+	
 	<div id="container">
 		<h1 id="app-header">Welcome to the Alphabet Game!</h1>
 
@@ -36,17 +21,13 @@
 					<div class="form-field">
 						<label for="txtPosition" >Alphabet Letter Position</label>
 
-						<!-- Input field were users will type their value to be converter. The id="txtFahrenheit"  binds with
-						     Javascript code fahrenheit variable to store and assign the value.  
-						-->
+					
 						<input type="text" class="input" id="txtPosition" name="txtPosition">
 					</div>
 					<div class="form-field"> 
 
 
-						<!--Onclick function placed on button so when user clicks the Convert Temperature button, it triggers my
-						    myFunction to run and places the input value converted into the conversion results.
-						-->
+						
 						<button id="btnFindLetter" class="btn btn-primary full-width" onclick="myFunction()">Find Letter</button>
 
 					</div>
@@ -65,7 +46,7 @@
 			<div class="card-title">Letters in the Alphabet</div>
 			<div class="card-contents" id="alphabet">
 			
-				<!-- Binds id="resultsC" to the myFunction to display the results of converted value -->
+				
 			<p id="resultsC"></p>
 			</div>
 
@@ -80,7 +61,7 @@
                 <div class="card-title">Results</div>
                 <div class="card-contents" >
                 
-                    <!-- Binds id="resultsC" to the myFunction to display the results of converted value -->
+                   
                 <p id="resultsPos"></p>
                 </div>
     
@@ -89,26 +70,29 @@
         </div>
     
         <div>
-		<!-- Links assignment 3.2 back to landing home page.-->
+		
         <a href="../index.html" class="return-home">Return</a>
        </div>
 
 	<script>
 		
-		/* The myFunction function is used to convert a users inputted fahrenheit value and then convert it to celsius.
-		   After the values are converted, they are than display the results on the conversion results section. 
-		*/
+	
 
 		function myFunction() {
 
-		//Captures the value from the 'txtFahrenheit' id and assigns the value to fahrenheit.
+		
 		let pos = document.getElementById("txtPosition").value;
         
         let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
         
-        alphabetOutput = " "
+        alphabetOutput = "";
+
+		
        
-        
+        for (let letter in alphabet){
+			alphabetOutput += alphabet[letter]+ " ,";
+		}
+
 
        
        
@@ -116,30 +100,37 @@
 
 	     let letter = "";
 
+		 let letterPosition = letter.includes(-1);
+
+		 
+
 		 for (let index in alphabet){
-			letter += alphabet[index]+ "";
-		}
+			letter += alphabet[index];
 
-        if( letter === undefined){
+			if(letter[pos] = undefined){
+
+		
+
+			letterPosition = `There are not ${pos} letters in the alphabet.`; 
 
 			
+			}	
+			else{
 
-             document.getElementById("resultsPos").innerHTML =  `There are not ${pos} letters in the alphabet”.`; 
 
-        }
-
-        else{
         
+			letterPosition =  `${pos} is at position ${letter.indexOf(pos)} in the alphabet.`;
+
+
+		};
+
 			
-            // document.getElementById("resultsPos").innerHTML = `${pos} is at position ${myLetter[index]} in the alphabet.`;  
-            // for (let index in alphabet){
-			// 	 letter += alphabet[index]+ "";
-			// }
-				document.getElementById("resultsPos").innerHTML = `${pos} is at position ${letter.indexOf(pos)} in the alphabet.`;
-			
-        };
-	
-	    };
+		};
+
+		document.getElementById("resultsPos").innerHTML = letterPosition;
+
+		
+	};
 		
 	</script>
 
